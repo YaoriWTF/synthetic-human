@@ -1,0 +1,32 @@
+### Отправить обычную команду
+POST http://localhost:8080/api/bishop/commands
+Content-Type: application/json
+
+{
+  "description": "Regular task",
+  "priority": "COMMON",
+  "author": "ripley"
+}
+
+### Отправить критическую команду
+POST http://localhost:8081/api/bishop/commands
+Content-Type: application/json
+
+{
+  "description": "Emergency shutdown",
+  "priority": "CRITICAL",
+  "author": "mother"
+}
+
+### Проверить статус
+GET http://localhost:8081/api/bishop/status
+
+### Неправильная команда (тест валидации)
+POST http://localhost:8081/api/bishop/commands
+Content-Type: application/json
+
+{
+  "description": "",
+  "priority": "INVALID",
+  "author": ""
+}
